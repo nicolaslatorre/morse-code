@@ -1,8 +1,21 @@
 import typing
 
-english_to_morse_code_dictionary = {
+english_to_morse_code_dictionary: dict[str, str] = {
     'A': '.-',
-    'B': '-...'
+    'B': '-...',
+    'C': '-.-.',
+    'D': '-..',
+    'E': '.',
+    'F': '..-.',
+    'G': '--.',
+    'H': '....',
+    'I': '..',
+    'J': '.---',
+    'K': '-.-',
+    'L': '.-..',
+    'M': '--',
+    'N': '-.',
+    'O': '---'
 }
 
 class Translator(object):

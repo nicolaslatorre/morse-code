@@ -1,6 +1,7 @@
 import unittest
 from app.translator import Translator
 
+
 class TranslatorTests(unittest.TestCase):
     def test_translator_translate_method_should_return_the_morse_equivalent_of_A(self):
         translator = Translator()
@@ -131,3 +132,23 @@ class TranslatorTests(unittest.TestCase):
         translator = Translator()
         result = translator.translate('Z')
         self.assertEqual('--..', result)
+
+    def test_translator_translate_method_should_return_an_empty_string(self):
+        translator = Translator()
+        result = translator.translate('è')
+        self.assertEqual('', result)
+
+    def test_translator_translate_word_method_should_return_the_morse_equivalent_of_hello(self):
+        translator = Translator()
+        result = translator.translate_word('hello')
+        self.assertEqual('.... . .-.. .-.. ---', result)
+
+    def test_translator_translate_word_method_should_return_the_morse_equivalent_of_world(self):
+        translator = Translator()
+        result = translator.translate_word('world')
+        self.assertEqual('.-- --- .-. .-.. -..', result)
+
+    def test_translator_translate_word_method_should_return_an_empty_string_for_empty_word(self):
+        translator = Translator()
+        result = translator.translate_word('')
+        self.assertEqual('', result)

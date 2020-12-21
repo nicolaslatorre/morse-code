@@ -133,6 +133,11 @@ class TranslatorTests(unittest.TestCase):
         result = translator.translate('Z')
         self.assertEqual('--..', result)
 
+    def test_translator_translate_method_should_return_an_empty_string(self):
+        translator = Translator()
+        result = translator.translate('è')
+        self.assertEqual('', result)
+
     def test_translator_translate_word_method_should_return_the_morse_equivalent_of_hello(self):
         translator = Translator()
         result = translator.translate_word('hello')
@@ -142,3 +147,8 @@ class TranslatorTests(unittest.TestCase):
         translator = Translator()
         result = translator.translate_word('world')
         self.assertEqual('.-- --- .-. .-.. -..', result)
+
+    def test_translator_translate_word_method_should_return_an_empty_string_for_empty_word(self):
+        translator = Translator()
+        result = translator.translate_word('')
+        self.assertEqual('', result)

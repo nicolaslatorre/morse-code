@@ -30,11 +30,15 @@ english_to_morse_code_dictionary: dict[str, str] = {
 }
 
 class Translator(object):
-    def translate(self, character: str) -> str:
+    def translate_character(self, character: str) -> str:
         if character in english_to_morse_code_dictionary:
             return english_to_morse_code_dictionary[character]
         return ''
 
     def translate_word(self, word: str) -> str:
-        translated_word = map(lambda x: self.translate(x), list(word.upper()))
+        translated_word = map(lambda x: self.translate_character(x), list(word.upper()))
         return ' '.join(translated_word)
+
+    def translate(self, phrase: str) -> str:
+        translation = map(lambda x: self.translate_word(x), phrase.split(' '))
+        return '       '.join(translation)
